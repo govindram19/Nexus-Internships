@@ -1,0 +1,66 @@
+import random
+# So the chatbot starts off with a greeting message when summoned via chatbot() and then we can interact with it.
+# A list of a few questions I could think of.
+questions = [
+    "What is your name?",
+    "How are you?",
+    "What is the weather like today?",
+    "What time is it?",
+    "Where are you from?",
+    "What is your favorite color?",
+    "Do you have any hobbies?",
+    "What is the capital of France?",
+    "Can you recommend a good restaurant?",
+    "How do I get to the nearest train station?",
+    "What is the meaning of life?",
+    "Tell me a joke."
+]
+
+answers = [
+    "My name is Chatbot.",
+    "I'm doing well, thank you!",
+    "The weather is sunny today.",
+    "It's currently 2:30 PM.",
+    "I am from the Internet.",
+    "My favorite color is blue.",
+    "I enjoy chatting with people.",
+    "The capital of France is Paris.",
+    "I recommend trying out 'The Italian Kitchen'.",
+    "You can take bus number 10 to reach the train station.",
+    "The meaning of life is 42.",
+    "Why don't scientists trust atoms? Because they make up everything!"
+]
+
+# Greeting function
+def greet():
+    greetings = [
+        "Hello! How can I assist you today?",
+        "Hi there! How can I help you?",
+        "Welcome! What can I do for you?"
+    ]
+    return random.choice(greetings)
+
+# Farewell message
+def farewell():
+    farewells = [
+        "Goodbye! Have a great day!",
+        "Farewell! Take care!",
+        "Until next time! Goodbye!"
+    ]
+    return random.choice(farewells)
+
+# Chatbot function
+def chatbot():
+    print(greet())
+    while True:
+        user_input = input("User: ")
+        if user_input.lower() == "bye":
+            print(farewell())
+            break
+        elif user_input in questions:
+            index = questions.index(user_input)
+            print("Chatbot:", answers[index])
+        else:
+            print("Chatbot: I'm sorry, I didn't understand that. Can you please rephrase?")
+
+chatbot()
